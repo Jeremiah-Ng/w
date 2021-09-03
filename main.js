@@ -17,10 +17,78 @@ var counter = 0;
 var timeTotal=0;
 var inst = setInterval(change, 1000);
 function change() {
+    if(time1==winTime){
+      time1=time1
+    if(time1==winTime && difficulty=="Easy"){
+      fill("#20d444");
+      stroke(0)
+      rect(0,0,width,height-1);
+      fill("white");
+      stroke("white");
+      textSize(25)
+      text("You Won!",width/2,height/2);
+      text("You survived 40 seconds in easy difficulty!",width/2,height/2+30)
+      noLoop();
+      pcscore = 0;
+    }
+    else if(time1==winTime && difficulty=="Medium"){
+      fill("#20d444");
+      stroke(0)
+      rect(0,0,width,height-1);
+      fill("white");
+      stroke("white");
+      textSize(25)
+      text("You Won!",width/2,height/2);
+      text("You survived 30 seconds in medium difficulty!",width/2,height/2+30)
+      noLoop();
+      pcscore = 0;
+    }
+    else if(time1==winTime && difficulty=="Hard"){
+      fill("#20d444");
+      stroke(0)
+      rect(0,0,width,height-1);
+      fill("white");
+      stroke("white");
+      textSize(25)
+      text("You Won!",width/2,height/2);
+      text("You survived 30 seconds in hard difficulty!",width/2,height/2+30)
+      noLoop();
+      pcscore = 0;
+    }
+    
+    else if(time1==winTime && difficulty=="Insane"){
+      fill("#20d444");
+      stroke(0)
+      rect(0,0,width,height-1);
+      fill("white");
+      stroke("white");
+      textSize(25)
+      text("You Won!",width/2,height/2);
+      text("You survived 30 seconds in insane difficulty!",width/2,height/2+30)
+      noLoop();
+      pcscore = 0;
+    }
+    else if(time1==winTime && difficulty=="Impossible"){
+      fill("#20d444");
+      stroke(0)
+      rect(0,0,width,height-1);
+      fill("white");
+      stroke("white");
+      textSize(25)
+      text("What...",width/2,height/2);
+      text("How did you survive that???",width/2,height/2+30)
+      text("You survived 20 seconds in IMPOSSIBLE difficulty???",width/2,height/2+60)
+      noLoop();
+      pcscore = 0;
+    }
+  }
+  else{
     time1=time1+1
     timeTotal=timeTotal+1
     counter++;
+  }
 }
+var winTime=10000;
 var finalTime=0;
 var timeTotal=0;
 //ball x and y and speedx speed y and radius
@@ -79,6 +147,8 @@ function draw(){
    
    //function move call which in very important
     move();
+    
+
 }
 
 
@@ -101,6 +171,7 @@ function resetdiff(){
  //  for(i=0; i<4; i++){
   time1=0;
  //  }
+ timeTotal=0;
  pcscore=0;
 }
 
@@ -220,6 +291,7 @@ function easy(){
   close1();
   difficulty="Easy"
   document.getElementById("reeses").innerHTML="<button class='btn btn-info dropdown-toggle' onclick='drop()'> Easy Difficulty ▼</button>"
+  winTime=40;
 }
 function medium(){
   paddle1Height=170;
@@ -227,6 +299,7 @@ function medium(){
   close1();
   difficulty="Medium"
   document.getElementById("reeses").innerHTML="<button class='btn btn-info dropdown-toggle' onclick='drop()'> Medium Difficulty ▼</button>"
+  winTime=30;
 }
 function hard(){
   paddle1Height=100;
@@ -234,4 +307,22 @@ function hard(){
   close1();
   difficulty="Hard"
   document.getElementById("reeses").innerHTML="<button class='btn btn-info dropdown-toggle' onclick='drop()'> Hard Difficulty ▼</button>"
+  winTime=30;
 }
+function insane(){
+  paddle1Height=75;
+  resetdiff();
+  close1();
+  difficulty="Insane"
+  document.getElementById("reeses").innerHTML="<button class='btn btn-info dropdown-toggle' onclick='drop()'> Insane Difficulty ▼</button>"
+  winTime=30;
+}
+function impossible(){
+  paddle1Height=20;
+  resetdiff();
+  close1();
+  difficulty="Impossible"
+  document.getElementById("reeses").innerHTML="<button class='btn btn-info dropdown-toggle' onclick='drop()'> Impossible Difficulty ▼</button>"
+  winTime=20;
+}
+medium();
